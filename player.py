@@ -23,7 +23,6 @@ from datetime import datetime
 
 import card as c
 from errors import DeckEmptyError
-import random
 
 class Player(object):
     """
@@ -111,7 +110,7 @@ class Player(object):
     def draw(self):
         """Draws 1+ cards from the deck, depending on the draw counter"""
         _amount = self.game.draw_counter or 1
-        _amount += random.randint(0, 2)
+
         try:
             for i in range(_amount):
                 self.cards.append(self.game.deck.draw())

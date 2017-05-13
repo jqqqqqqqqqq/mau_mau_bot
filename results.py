@@ -28,6 +28,7 @@ from telegram import InlineQueryResultArticle, InputTextMessageContent, \
 import card as c
 from utils import display_color, display_color_group, display_name
 from internationalization import _, __
+import random
 
 
 def add_choose_color(results, game):
@@ -96,8 +97,8 @@ def add_not_started(results):
 
 def add_draw(player, results):
     """Add option to draw"""
+    player.game.draw_counter += random.randint(0, 2)
     n = player.game.draw_counter or 1
-
     results.append(
         Sticker(
             "draw", sticker_file_id=c.STICKERS['option_draw'],
