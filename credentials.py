@@ -17,5 +17,5 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-TOKEN = 'TOKEN'
+TOKEN = '344131494:AAEtn8n97qnKJ4OKUPAF1atvYFoUUudj30I'
 BOTAN_TOKEN = ''  # Optional: Add a botan.io token if you want bot statistics

@@ -29,7 +29,7 @@ from telegram.ext import InlineQueryHandler, ChosenInlineResultHandler, \
 from telegram.ext.dispatcher import run_async
 
 from start_bot import start_bot
-from results import (add_call_bluff, add_choose_color, add_draw, add_gameinfo,
+from results import (add_caxll_bluff, add_choose_color, add_draw, add_gameinfo,
                      add_no_game, add_not_started, add_other_cards, add_pass,
                      add_card)
 from user_setting import UserSetting
