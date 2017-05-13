@@ -100,12 +100,16 @@ def add_draw(player, results):
     player.game.next_bonus = random.randint(0, 1)
     n = player.game.draw_counter or 1
     n += player.game.next_bonus
+    if player.game.next_bonus > 0:
+        draw_text = 'Drawing {number} cards' + ', bonus +' + str(player.game.next_bonus)
+    else:
+        draw_text = 'Drawing {number} cards'
     results.append(
         Sticker(
             "draw", sticker_file_id=c.STICKERS['option_draw'],
             input_message_content=
             InputTextMessageContent(__('Drawing {number} card',
-                                       'Drawing {number} cards', n,
+                                       draw_text, n,
                                        multi=player.game.translate)
                                     .format(number=n))
         )
