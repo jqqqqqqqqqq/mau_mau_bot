@@ -76,7 +76,7 @@ class Deck(object):
             value = choice((c.DRAW_TWO, c.REVERSE, c.SKIP))
             card = Card(color, value)
         card.extra = True
-        return Card(None, None, special=choice(c.SPECIALS))
+        return card
 
     def dismiss(self, card):
         """Returns a card to the deck"""
