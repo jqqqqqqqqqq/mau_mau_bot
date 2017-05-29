@@ -73,7 +73,7 @@ class Deck(object):
             card = Card(None, None, special=choice(c.SPECIALS))
         else:
             color = choice(c.COLORS)
-            value = choice((c.VALUES.DRAW_TWO, c.VALUES.REVERSE, c.VALUES.SKIP))
+            value = choice((c.DRAW_TWO, c.REVERSE, c.SKIP))
             card = Card(color, value)
         card.extra = True
         return Card(None, None, special=choice(c.SPECIALS))
