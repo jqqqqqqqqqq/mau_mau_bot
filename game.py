@@ -81,7 +81,8 @@ class Game(object):
         Should be called only from Player.play or on game start to play the
         first card
         """
-        self.deck.dismiss(self.last_card)
+        if not self.last_card.extra:
+            self.deck.dismiss(self.last_card)
         self.last_card = card
 
         self.logger.info("Playing card " + repr(card))

@@ -24,6 +24,7 @@ import logging
 import card as c
 from card import Card
 from errors import DeckEmptyError
+from random import choice, randint
 
 
 class Deck(object):
@@ -66,6 +67,16 @@ class Deck(object):
                 return self.draw()
             else:
                 raise DeckEmptyError()
+
+    def append_special(self):
+        if randint(0, 10) >= 8:
+            card = Card(None, None, special=choice(c.SPECIALS))
+        else:
+            color = choice(c.COLORS)
+            value = choice((c.VALUES.DRAW_TWO, c.VALUES.REVERSE, c.VALUES.SKIP))
+            card = Card(color, value)
+        card.extra = True
+        return Card(None, None, special=choice(c.SPECIALS))
 
     def dismiss(self, card):
         """Returns a card to the deck"""

@@ -97,7 +97,7 @@ def add_not_started(results):
 
 def add_draw(player, results):
     """Add option to draw"""
-    player.game.next_bonus = random.randint(0, 1)
+    player.game.next_bonus = random.choice((0, 0, 0, 0, 0, 0, 0, 1, 1, 2))  # Wow such lucky
     n = player.game.draw_counter or 1
     n += player.game.next_bonus
     results.append(

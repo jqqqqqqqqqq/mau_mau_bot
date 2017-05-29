@@ -110,11 +110,12 @@ class Player(object):
     def draw(self):
         """Draws 1+ cards from the deck, depending on the draw counter"""
         _amount = self.game.draw_counter or 1
-        _amount += self.game.next_bonus
+        # _amount += self.game.next_bonus
         try:
             for i in range(_amount):
                 self.cards.append(self.game.deck.draw())
-
+            for i in range(self.game.next_bonus):
+                self.cards.append(self.game.deck.append_special())
         except DeckEmptyError:
             raise
 

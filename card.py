@@ -187,6 +187,7 @@ class Card(object):
         self.color = color
         self.value = value
         self.special = special
+        self.extra = False
 
     def __str__(self):
         if self.special:
