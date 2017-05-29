@@ -694,9 +694,10 @@ def do_call_bluff(bot, player):
 
     if player.prev.bluffing:
         send_async(bot, chat.id,
-                   text=__("Bluff called! Giving 4 cards to {name}",
+                   text=__("Bluff called! Giving 4+{bonus} cards to {name}",
                            multi=game.translate)
-                   .format(name=player.prev.user.first_name))
+                   .format(name=player.prev.user.first_name,
+                           bonus=str(player.game.next_bonus)))
 
         try:
             player.prev.draw()
@@ -708,10 +709,11 @@ def do_call_bluff(bot, player):
     else:
         game.draw_counter += 2
         send_async(bot, chat.id,
-                   text=__("{name1} didn't bluff! Giving 6 cards to {name2}",
+                   text=__("{name1} didn't bluff! Giving 6+{bonus} cards to {name2}",
                            multi=game.translate)
                    .format(name1=player.prev.user.first_name,
-                           name2=player.user.first_name))
+                           name2=player.user.first_name,
+                           bonus=str(player.game.next_bonus)))
         try:
             player.draw()
         except DeckEmptyError:
