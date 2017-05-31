@@ -179,6 +179,11 @@ STICKERS_GREY = {
     'colorchooser': 'BQADBAADXwIAAl9XmQABY_ksDdMex-wC'
 }
 
+additional_stickers = {
+    'arcaneIntellect': 'CAADBAADHwIAAtGZZwAB_p7giznbBfQC',
+    'layOnHands': 'CAADBAADIwIAAtGZZwABm9E12ufMTUkC',
+    'sprint': 'CAADBAADQAIAAtGZZwAB_OAOkXnfXgIC'
+}
 
 class Card(object):
     """This class represents an UNO card"""
