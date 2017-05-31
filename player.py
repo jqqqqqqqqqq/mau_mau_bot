@@ -20,6 +20,7 @@
 
 import logging
 from datetime import datetime
+import random
 
 import card as c
 from errors import DeckEmptyError
@@ -43,7 +44,8 @@ class Player(object):
                 self.cards.append(self.game.deck.draw())
         except DeckEmptyError:
             for card in self.cards:
-                self.game.deck.dismiss(card)
+                if not card.extra:
+                    self.game.deck.dismiss(card)
 
             raise
 
@@ -75,7 +77,8 @@ class Player(object):
         self.prev = None
 
         for card in self.cards:
-            self.game.deck.dismiss(card)
+            if not card.extra:
+                self.game.deck.dismiss(card)
 
         self.cards = list()
 
@@ -122,6 +125,9 @@ class Player(object):
         finally:
             self.game.draw_counter = 0
             self.drew = True
+            self.game.next_bonus = random.choice((0, 0, 0, 0, 0, 0, 0, 1, 1, 2))  # Wow such lucky
+            if random.randint(0, 100) == 50:
+                self.game.next_bonus = 10  # Super lucky
 
     def play(self, card):
         """Plays a card and removes it from hand"""
