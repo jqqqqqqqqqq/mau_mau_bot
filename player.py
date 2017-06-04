@@ -121,7 +121,7 @@ class Player(object):
                 self.cards.append(self.game.deck.append_special())
             if self.game.next_bonus == 10:
                 for i in range(10):
-                self.cards.append(self.game.deck.append_basic())
+                    self.cards.append(self.game.deck.append_basic())
         except DeckEmptyError:
             raise
 
