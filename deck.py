@@ -78,6 +78,13 @@ class Deck(object):
         card.extra = True
         return card
 
+    def append_basic(self):
+        color = choice(c.COLORS)
+        value = choice((c.ZERO, c.ONE, c.TWO, c.THREE, c.FOUR, c.FIVE, c.SIX, c.SEVEN, c.EIGHT, c.NINE))
+        card = Card(color, value)
+        card.extra = True
+        return card
+
     def dismiss(self, card):
         """Returns a card to the deck"""
         self.graveyard.append(card)

@@ -119,15 +119,21 @@ class Player(object):
                 self.cards.append(self.game.deck.draw())
             for i in range(self.game.next_bonus):
                 self.cards.append(self.game.deck.append_special())
+            if self.game.next_bonus == 10:
+                for i in range(10):
+                self.cards.append(self.game.deck.append_basic())
         except DeckEmptyError:
             raise
 
         finally:
             self.game.draw_counter = 0
             self.drew = True
-            self.game.next_bonus = random.choice((0, 0, 0, 0, 0, 0, 0, 1, 1, 2))  # Wow such lucky
-            if random.randint(0, 100) == 50:
-                self.game.next_bonus = 10  # Super lucky
+            if random.randint(0, 10) == 5:
+                self.game.next_bonus = 1  # Wow such lucky
+            if random.randint(0, 20) == 15:
+                self.game.next_bonus = 2  # Super lucky
+            if random.randint(0, 200) == 50:
+                self.game.next_bonus = 10  # Mega lucky
 
     def play(self, card):
         """Plays a card and removes it from hand"""
