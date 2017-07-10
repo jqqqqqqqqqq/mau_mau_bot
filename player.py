@@ -127,12 +127,15 @@ class Player(object):
 
         finally:
             self.game.draw_counter = 0
+            self.game.next_bonus = 0
+            self.game.draw_counter = 0
+            self.game.draw_counter = 0
             self.drew = True
-            if random.randint(0, 10) == 5:
+            if random.randint(0, 5) == 5:
                 self.game.next_bonus = 1  # Wow such lucky
-            if random.randint(0, 20) == 15:
+            if random.randint(0, 15) == 10:
                 self.game.next_bonus = 2  # Super lucky
-            if random.randint(0, 200) == 50:
+            if random.randint(0, 150) == 50:
                 self.game.next_bonus = 10  # Mega lucky
 
     def play(self, card):
